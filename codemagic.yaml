@@ -1,0 +1,54 @@
+# Compilación y subida a App Store Connect con Codemagic (Mac en la nube).
+# Requisitos en Codemagic (ver README):
+#   - Integración "App Store Connect" del equipo con la clave API, llamada OEAON.
+#   - Grupo de variables "admob" en esta app: ADMOB_APP_ID, AD_BANNER, AD_INTERSTITIAL, AD_APP_OPEN, AD_REWARDED.
+#   - Variable APP_STORE_APPLE_ID (ID numérico de la app en App Store Connect) en el grupo "admob".
+workflows:
+  ios-release:
+    name: iOS → App Store Connect
+    instance_type: mac_mini_m2
+    max_build_duration: 60
+    integrations:
+      app_store_connect: OEAON
+    environment:
+      groups:
+        - admob
+      ios_signing:
+        distribution_type: app_store
+        bundle_identifier: com.oeaon.testsoposiciones
+      flutter: stable
+      xcode: latest
+      cocoapods: default
+    triggering:
+      events:
+        - tag
+      tag_patterns:
+        - pattern: 'v*'
+    scripts:
+      - name: ID de la app de AdMob
+        script: echo "ADMOB_APP_ID = $ADMOB_APP_ID" > ios/Flutter/AdMob.xcconfig
+      - name: Firma
+        script: xcode-project use-profiles
+      - name: Dependencias
+        script: flutter pub get
+      - name: Tests
+        script: flutter test
+      - name: CocoaPods
+        script: find . -name "Podfile" -execdir pod install \;
+      - name: Compilar IPA
+        script: |
+          LATEST=$(app-store-connect get-latest-build-number "$APP_STORE_APPLE_ID" || echo 0)
+          flutter build ipa --release \
+            --build-number=$((LATEST + 1)) \
+            --export-options-plist=/Users/builder/export_options.plist \
+            --dart-define=AD_BANNER="$AD_BANNER" \
+            --dart-define=AD_INTERSTITIAL="$AD_INTERSTITIAL" \
+            --dart-define=AD_APP_OPEN="$AD_APP_OPEN" \
+            --dart-define=AD_REWARDED="$AD_REWARDED"
+    artifacts:
+      - build/ios/ipa/*.ipa
+      - /tmp/xcodebuild_logs/*.log
+    publishing:
+      app_store_connect:
+        auth: integration
+        submit_to_testflight: true

@@ -1,0 +1,218 @@
+{
+  "@@locale": "es",
+  "settings": "Ajustes",
+  "loadError": "No se han podido cargar las preguntas.",
+  "mastery": "Dominas {p1} de {p2} preguntas",
+  "streakNone": "Haz un test hoy para empezar tu racha.",
+  "bestExam": "Mejor nota en simulacro: {p1}",
+  "quickTest": "Test rápido ({p1})",
+  "reviewFailed": "Repasar fallos ({p1})",
+  "examTitle": "Simulacro de examen",
+  "examLocked": "Examen de {p1} preguntas en {p2} minutos, con penalización por fallo como en las oposiciones de la Administración del Estado.",
+  "examDescription": "{p1} preguntas de todos los temas, {p2} minutos. Cada fallo resta un tercio de acierto.",
+  "examStart": "Empezar simulacro",
+  "topics": "Temas",
+  "topicStats": "{p1} preguntas · {p2} % dominado",
+  "questionOf": "Pregunta {p1} de {p2}",
+  "quitTest": "Salir del test",
+  "quitTestText": "Si sales ahora no se guardará este test.",
+  "quit": "Salir",
+  "keepGoing": "Seguir",
+  "answerRight": "¡Correcto!",
+  "answerWrong": "Incorrecto",
+  "previous": "Anterior",
+  "next": "Siguiente",
+  "finish": "Terminar",
+  "finishExamNow": "Entregar examen",
+  "finishExamText": "Has contestado {p1} de {p2} preguntas. Las que estén en blanco no restan.",
+  "results": "Resultado",
+  "score": "Nota: {p1}",
+  "resultCounts": "{p1} aciertos · {p2} fallos · {p3} en blanco",
+  "resultPenalty": "Aciertos netos tras la penalización: {p1}",
+  "backHome": "Volver al inicio",
+  "yourMistakes": "Tus fallos",
+  "yourAnswer": "Tu respuesta: {p1}",
+  "correctAnswer": "Correcta: {p1}",
+  "resetProgress": "Borrar mi progreso",
+  "resetProgressText": "Se borrarán tus aciertos, fallos, racha y mejor nota. No se puede deshacer.",
+  "reset": "Borrar",
+  "premiumFeatureExam": "Simulacros de examen con tiempo y penalización",
+  "premiumSettingsText": "Quita los anuncios y desbloquea los simulacros de examen.",
+  "removeAds": "Quitar anuncios",
+  "privacyOptions": "Opciones de privacidad de anuncios",
+  "aboutTitle": "Acerca de",
+  "aboutText": "Preguntas tipo test sobre la Constitución Española y las leyes 39/2015 y 40/2015 para preparar oposiciones. Las preguntas están en castellano, como en los exámenes de la Administración General del Estado.",
+  "sourceTitle": "Fuentes oficiales",
+  "source1": "Constitución Española (BOE)",
+  "source2": "Ley 39/2015 (BOE)",
+  "source3": "Ley 40/2015 (BOE)",
+  "version": "Versión {p1}",
+  "streak": "{p1, plural, =1{🔥 {p1} día seguido estudiando} other{🔥 {p1} días seguidos estudiando}}",
+  "premiumTitle": "Premium",
+  "premiumBack": "Volver",
+  "premiumHeadline": "Pásate a Premium",
+  "premiumActive": "Ya eres Premium. ¡Gracias por tu apoyo!",
+  "premiumBenefitNoAds": "Sin anuncios",
+  "premiumMonthly": "{p1} al mes",
+  "premiumLifetime": "{p1}, pago único para siempre",
+  "premiumLoading": "Cargando precio…",
+  "premiumStoreUnavailable": "No se puede conectar con el App Store. Inténtalo más tarde.",
+  "premiumRestore": "Restaurar compras",
+  "premiumLegal": "La suscripción se renueva cada mes y puedes cancelarla cuando quieras en el App Store.",
+  "lockedWatchAd": "Ver un anuncio y desbloquear 24 h",
+  "lockedGoPremium": "Hazte Premium",
+  "rewardedUnavailable": "No hay ningún anuncio disponible ahora mismo. Prueba dentro de un rato.",
+  "@mastery": {
+    "placeholders": {
+      "p1": {
+        "type": "int"
+      },
+      "p2": {
+        "type": "int"
+      }
+    }
+  },
+  "@bestExam": {
+    "placeholders": {
+      "p1": {
+        "type": "String"
+      }
+    }
+  },
+  "@quickTest": {
+    "placeholders": {
+      "p1": {
+        "type": "int"
+      }
+    }
+  },
+  "@reviewFailed": {
+    "placeholders": {
+      "p1": {
+        "type": "int"
+      }
+    }
+  },
+  "@examLocked": {
+    "placeholders": {
+      "p1": {
+        "type": "int"
+      },
+      "p2": {
+        "type": "int"
+      }
+    }
+  },
+  "@examDescription": {
+    "placeholders": {
+      "p1": {
+        "type": "int"
+      },
+      "p2": {
+        "type": "int"
+      }
+    }
+  },
+  "@topicStats": {
+    "placeholders": {
+      "p1": {
+        "type": "int"
+      },
+      "p2": {
+        "type": "int"
+      }
+    }
+  },
+  "@questionOf": {
+    "placeholders": {
+      "p1": {
+        "type": "int"
+      },
+      "p2": {
+        "type": "int"
+      }
+    }
+  },
+  "@finishExamText": {
+    "placeholders": {
+      "p1": {
+        "type": "int"
+      },
+      "p2": {
+        "type": "int"
+      }
+    }
+  },
+  "@score": {
+    "placeholders": {
+      "p1": {
+        "type": "String"
+      }
+    }
+  },
+  "@resultCounts": {
+    "placeholders": {
+      "p1": {
+        "type": "int"
+      },
+      "p2": {
+        "type": "int"
+      },
+      "p3": {
+        "type": "int"
+      }
+    }
+  },
+  "@resultPenalty": {
+    "placeholders": {
+      "p1": {
+        "type": "String"
+      }
+    }
+  },
+  "@yourAnswer": {
+    "placeholders": {
+      "p1": {
+        "type": "String"
+      }
+    }
+  },
+  "@correctAnswer": {
+    "placeholders": {
+      "p1": {
+        "type": "String"
+      }
+    }
+  },
+  "@version": {
+    "placeholders": {
+      "p1": {
+        "type": "String"
+      }
+    }
+  },
+  "@streak": {
+    "placeholders": {
+      "p1": {
+        "type": "int"
+      }
+    }
+  },
+  "@premiumMonthly": {
+    "placeholders": {
+      "p1": {
+        "type": "String"
+      }
+    }
+  },
+  "@premiumLifetime": {
+    "placeholders": {
+      "p1": {
+        "type": "String"
+      }
+    }
+  },
+  "privacyPolicy": "Política de privacidad",
+  "termsOfUse": "Términos de uso",
+  "aboutDisclaimer": "App independiente, sin relación con ningún organismo público."
+}
