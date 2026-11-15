@@ -51,4 +51,6 @@ workflows:
     publishing:
       app_store_connect:
         auth: integration
-        submit_to_testflight: true
+        # Solo pruebas internas: la build llega sola al grupo "Interno" de TestFlight.
+        # (true la enviaría además a la revisión beta externa, que pide datos de contacto).
+        submit_to_testflight: false
