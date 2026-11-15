@@ -9,7 +9,7 @@ workflows:
     instance_type: mac_mini_m2
     max_build_duration: 60
     integrations:
-      app_store_connect: OEAON
+      app_store_connect: AppStoreConnect
     environment:
       groups:
         - admob
@@ -26,7 +26,7 @@ workflows:
         - pattern: 'v*'
     scripts:
       - name: ID de la app de AdMob
-        script: echo "ADMOB_APP_ID = $ADMOB_APP_ID" > ios/Flutter/AdMob.xcconfig
+        script: echo "ADMOB_APP_ID = ${ADMOB_APP_ID:-ca-app-pub-3940256099942544~1458002511}" > ios/Flutter/AdMob.xcconfig
       - name: Firma
         script: xcode-project use-profiles
       - name: Dependencias
