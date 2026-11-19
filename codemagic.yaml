@@ -37,9 +37,12 @@ workflows:
         script: find . -name "Podfile" -execdir pod install \;
       - name: Compilar IPA
         script: |
-          LATEST=$(app-store-connect get-latest-build-number "$APP_STORE_APPLE_ID" || echo 0)
+          LATEST=$(app-store-connect get-latest-build-number "${APP_STORE_APPLE_ID:-6835129521}" || echo 0)
+          NEXT=$((LATEST + 1))
+          # Nunca por debajo del contador de Codemagic, por si falla la consulta.
+          if [ "$NEXT" -lt "${BUILD_NUMBER:-0}" ]; then NEXT=$BUILD_NUMBER; fi
           flutter build ipa --release \
-            --build-number=$((LATEST + 1)) \
+            --build-number=$NEXT \
             --export-options-plist=/Users/builder/export_options.plist \
             --dart-define=AD_BANNER="$AD_BANNER" \
             --dart-define=AD_INTERSTITIAL="$AD_INTERSTITIAL" \
