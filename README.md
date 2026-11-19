@@ -9,7 +9,7 @@ tiempo y penalización por fallo. Todo funciona sin conexión y el progreso se g
 - iOS 15 o superior
 - Idiomas: español, inglés, catalán y gallego
 - Anuncios con AdMob (consentimiento con UMP) y Premium con compras de Apple:
-  `premium_monthly` (suscripción mensual, 1,99 €) y `premium_lifetime` (compra no consumible, 9,99 €)
+  `com.oeaon.testsoposiciones.premium_monthly` (suscripción mensual, 1,99 €) y `com.oeaon.testsoposiciones.premium_lifetime` (compra no consumible, 9,99 €)
 
 ## Desarrollo
 

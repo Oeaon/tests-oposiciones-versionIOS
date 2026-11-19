@@ -13,8 +13,8 @@ class Billing {
   Billing({required this.onPremiumChanged, required this.onPricesLoaded});
 
   /// Crear en App Store Connect con estos IDs: suscripción mensual y compra no consumible.
-  static const monthlyId = 'premium_monthly';
-  static const lifetimeId = 'premium_lifetime';
+  static const monthlyId = 'com.oeaon.testsoposiciones.premium_monthly';
+  static const lifetimeId = 'com.oeaon.testsoposiciones.premium_lifetime';
   static const _ids = {monthlyId, lifetimeId};
 
   final void Function(bool premium) onPremiumChanged;
