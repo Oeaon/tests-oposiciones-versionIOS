@@ -32,6 +32,9 @@ class Monetization extends ChangeNotifier {
 
   static const _rewardUnlock = Duration(hours: 24);
 
+  /// Solo para las capturas de la tienda (`--dart-define=SCREENSHOTS=true`): sin anuncios ni consentimiento.
+  static const _screenshots = bool.fromEnvironment('SCREENSHOTS');
+
   final MonetizationStore _store;
   late final AdsManager _ads;
   late final Billing _billing;
@@ -49,7 +52,7 @@ class Monetization extends ChangeNotifier {
     return monetization;
   }
 
-  bool get isPremium => _isPremium;
+  bool get isPremium => _screenshots || _isPremium;
 
   bool get adsReady => _adsReady;
 
@@ -60,10 +63,11 @@ class Monetization extends ChangeNotifier {
   bool get privacyOptionsRequired => _privacyOptionsRequired;
 
   /// Las funciones extra se abren con Premium o durante 24 h tras ver un anuncio recompensado.
-  bool get isUnlocked => _isPremium || DateTime.now().millisecondsSinceEpoch < _rewardedUntilMs;
+  bool get isUnlocked => isPremium || DateTime.now().millisecondsSinceEpoch < _rewardedUntilMs;
 
   /// Tras mostrarse la primera pantalla: pide el consentimiento y arranca AdMob.
   Future<void> gatherConsent() async {
+    if (_screenshots) return;
     final ready = await AdsConsent.gather();
     _privacyOptionsRequired = await AdsConsent.isPrivacyOptionsRequired();
     if (ready) {
