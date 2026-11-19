@@ -1,7 +1,10 @@
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
+
 /// IDs de AdMob. En la compilación de la tienda llegan con `--dart-define` desde Codemagic
-/// (grupo de variables `admob`); sin ellos se usan los de prueba de Google.
+/// (grupo de variables `admob`). Sin ellos, las compilaciones de depuración usan los de prueba de Google
+/// y las de la tienda no cargan ningún anuncio (nunca se publica una versión con anuncios de prueba).
 class AdUnits {
   AdUnits._();
 
@@ -19,6 +22,9 @@ class AdUnits {
 
   static String get rewarded => _or(_rewarded, ios: 'ca-app-pub-3940256099942544/1712485313', android: 'ca-app-pub-3940256099942544/5224354917');
 
-  static String _or(String value, {required String ios, required String android}) =>
-      value.isNotEmpty ? value : (Platform.isIOS ? ios : android);
+  static String _or(String value, {required String ios, required String android}) {
+    if (value.isNotEmpty) return value;
+    if (!kDebugMode) return '';
+    return Platform.isIOS ? ios : android;
+  }
 }

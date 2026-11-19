@@ -45,7 +45,7 @@ class _AdBannerState extends State<AdBanner> {
   }
 
   Future<void> _load() async {
-    if (!widget.monetization.showAds || !mounted) return;
+    if (AdUnits.banner.isEmpty || !widget.monetization.showAds || !mounted) return;
     final width = MediaQuery.sizeOf(context).width.truncate();
     if (width == _loadedWidth) return;
     _loadedWidth = width;
@@ -149,7 +149,7 @@ class _LockedFeatureState extends State<LockedFeature> {
               Expanded(child: Text(widget.title, style: Theme.of(context).textTheme.titleMedium)),
             ]),
             Text(widget.description, style: Theme.of(context).textTheme.bodyMedium),
-            if (monetization.adsReady)
+            if (monetization.adsReady && AdUnits.rewarded.isNotEmpty)
               OutlinedButton(
                 onPressed: monetization.rewardedAvailable
                     ? () => monetization.unlockWithReward((earned) {

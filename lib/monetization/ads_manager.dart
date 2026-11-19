@@ -100,7 +100,7 @@ class AdsManager {
   }
 
   void _loadInterstitial() {
-    if (!_canLoad() || _interstitial != null || _loadingInterstitial) return;
+    if (AdUnits.interstitial.isEmpty || !_canLoad() || _interstitial != null || _loadingInterstitial) return;
     _loadingInterstitial = true;
     InterstitialAd.load(
       adUnitId: AdUnits.interstitial,
@@ -116,7 +116,7 @@ class AdsManager {
   }
 
   void _loadRewarded() {
-    if (!_sdkReady || _rewarded != null || _loadingRewarded) return;
+    if (AdUnits.rewarded.isEmpty || !_sdkReady || _rewarded != null || _loadingRewarded) return;
     _loadingRewarded = true;
     RewardedAd.load(
       adUnitId: AdUnits.rewarded,
@@ -133,7 +133,7 @@ class AdsManager {
   }
 
   void _loadAppOpen() {
-    if (!_canLoad() || _appOpen != null || _loadingAppOpen) return;
+    if (AdUnits.appOpen.isEmpty || !_canLoad() || _appOpen != null || _loadingAppOpen) return;
     _loadingAppOpen = true;
     AppOpenAd.load(
       adUnitId: AdUnits.appOpen,
